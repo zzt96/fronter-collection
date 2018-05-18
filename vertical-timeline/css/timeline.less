@@ -33,16 +33,20 @@
           transform: rotate(45deg);
         }
       }
-      .event:nth-child(even) {
+      .event {
         padding-bottom:15px;
-        left: 220px;
+        //left: 220px;
         position: relative;
-        width: 400px;
+        width: 300px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s ease-in-out;
+        //transform: translateX(200px);
         .mark {
           border:1px solid #CCCCCC;
           position: absolute;
-          left:-200px;
-          top:8%;
+          //left:-200px;
+          top:15px;//xiu
           width: 27px;
           height: 27px;
           /* Rotate to demon*/
@@ -54,8 +58,8 @@
         }
         .line {
           position: absolute;
-          left:-166px;
-          top:29%;
+          //left:-166px;
+          top:29px;
           width:160px;
           height:1px;
           padding:0px;
@@ -70,46 +74,68 @@
           color: #666666;
           font-size: 14px;
         }
-      }
-      .event:nth-child(odd) {
-        text-align: right;
-        padding-bottom:15px;
-        left: -650px;
-        position: relative;
-        width: 400px;
-        .mark {
-          border:1px solid #CCCCCC;
-          position: absolute;
-          left:600px;
-          top:8%;
-          width: 27px;
-          height: 27px;
-          /* Rotate to demon*/
-          -webkit-transform: rotate(-45deg);
-          -moz-transform: rotate(-45deg);
-          -ms-transform: rotate(-45deg);
-          -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+        &:nth-child(even) {
+          left: 220px;
+          transform: translateX(200px);
+          .mark {
+            left:-200px;
+          }
+          .line {
+            left:-166px;
+          }
         }
-        .line {
-          position: absolute;
-          left:436px;
-          top:29%;
-          width:160px;
-          height:1px;
-          padding:0px;
-          background-color:#CCCCCC;
+        &:nth-child(odd) {
+          text-align: right;
+          left: -550px;
+          transform: translateX(-200px);
+          .mark {
+            left:500px;
+          }
+          .line {
+            left:336px;
+          }
         }
-        time {
-          color: #333333;
-          font-size: 16px;
+        &.in-view {
+          transform: none;
+          visibility: visible;
+          opacity: 1;
         }
-        p {
-          margin-top: -2px;
-          color: #666666;
-          font-size: 14px;
+        &.in-view::after {
+          background-color: #FD9827;
+          transition: background-color .5s ease-in-out;
         }
       }
+
+      //@media screen and(max-width: 992px) {
+      //  .event:nth-child(odd) {
+      //    p{
+      //      width: 250px;
+      //    }
+      //
+      //  }
+      //
+      //  .timeline ul li .event:nth-child(even) {
+      //    left: -289px;
+      //  }
+      //}
+      //
+      //@media screen and (max-width: 675px) {
+      //  .timeline ul li {
+      //    margin-left: 48px;
+      //    .event {
+      //      &:nth-child(even) , &:nth-child(odd) {
+      //        left: 45px;
+      //
+      //        &::before {
+      //          left: -15px;
+      //          border-width: 8px 16px 8px 0;
+      //          border-color: transparent #F45B69 transparent transparent;
+      //        }
+      //      }
+      //    }
+      //
+      //  }
+      //}
     }
   }
 }

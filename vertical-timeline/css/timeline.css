@@ -34,17 +34,18 @@
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.timeline ul li .event:nth-child(even) {
+.timeline ul li .event {
   padding-bottom: 15px;
-  left: 220px;
   position: relative;
-  width: 400px;
+  width: 300px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
-.timeline ul li .event:nth-child(even) .mark {
+.timeline ul li .event .mark {
   border: 1px solid #CCCCCC;
   position: absolute;
-  left: -200px;
-  top: 8%;
+  top: 15px;
   width: 27px;
   height: 27px;
   /* Rotate to demon*/
@@ -54,60 +55,50 @@
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-.timeline ul li .event:nth-child(even) .line {
+.timeline ul li .event .line {
   position: absolute;
-  left: -166px;
-  top: 29%;
+  top: 29px;
   width: 160px;
   height: 1px;
   padding: 0px;
   background-color: #CCCCCC;
 }
-.timeline ul li .event:nth-child(even) time {
+.timeline ul li .event time {
   color: #333333;
   font-size: 16px;
 }
-.timeline ul li .event:nth-child(even) p {
+.timeline ul li .event p {
   margin-top: -2px;
   color: #666666;
   font-size: 14px;
+}
+.timeline ul li .event:nth-child(even) {
+  left: 220px;
+  transform: translateX(200px);
+}
+.timeline ul li .event:nth-child(even) .mark {
+  left: -200px;
+}
+.timeline ul li .event:nth-child(even) .line {
+  left: -166px;
 }
 .timeline ul li .event:nth-child(odd) {
   text-align: right;
-  padding-bottom: 15px;
-  left: -650px;
-  position: relative;
-  width: 400px;
+  left: -550px;
+  transform: translateX(-200px);
 }
 .timeline ul li .event:nth-child(odd) .mark {
-  border: 1px solid #CCCCCC;
-  position: absolute;
-  left: 600px;
-  top: 8%;
-  width: 27px;
-  height: 27px;
-  /* Rotate to demon*/
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  left: 500px;
 }
 .timeline ul li .event:nth-child(odd) .line {
-  position: absolute;
-  left: 436px;
-  top: 29%;
-  width: 160px;
-  height: 1px;
-  padding: 0px;
-  background-color: #CCCCCC;
+  left: 336px;
 }
-.timeline ul li .event:nth-child(odd) time {
-  color: #333333;
-  font-size: 16px;
+.timeline ul li .event.in-view {
+  transform: none;
+  visibility: visible;
+  opacity: 1;
 }
-.timeline ul li .event:nth-child(odd) p {
-  margin-top: -2px;
-  color: #666666;
-  font-size: 14px;
+.timeline ul li .event.in-view::after {
+  background-color: #FD9827;
+  transition: background-color 0.5s ease-in-out;
 }

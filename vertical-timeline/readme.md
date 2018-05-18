@@ -128,3 +128,77 @@ LESS文件:
 ```
 实现效果如图：
 ![image](http://osgsqkt7d.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-18%20%E4%B8%8B%E5%8D%883.10.45.png)
+
+---
+
+## 增加动态特效
+### 需求
+- 刷新页面和滑动整个页面的时候判断事件节点是否在视图之内
+- 初始节点默认是隐藏的，如果在视图之内，则从两边渐渐出现停在时间轴两边
+
+### 详细代码
+```
+JS:
+// judge if the target elements are fully visible in the View port
+// attentin:getBoundingClientRect()used to fetch the position data of <div> which are top,bottom,left and right
+// thus we can use this method to judge whether the target div is in the view port or not
+function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    )
+};
+
+//choose target elements
+var items = document.querySelectorAll(".event");
+
+// callbackFunc
+// add style "in-view" to make those targets showed up by set visibility to visible
+function callbackFunc() {
+    for (var i = 0; i < items.length; i++) {
+        if (isElementInViewport(items[i])) {
+            items[i].classList.add("in-view");
+        }
+    }
+}
+
+// addEventListener for the action load and scroll
+// when the event trigged, execute callback method
+window.addEventListener("load", callbackFunc);
+window.addEventListener("scroll", callbackFunc);
+```
+css:
+
+将原事件元素设置为默认隐藏,并增加出现效果
+```
+    .event:nth-child(odd) {
+        visibility: hidden;
+        opacity: 0;
+        transition: all .5s ease-in-out;
+        transform: translateX(200px);
+        transition: all .5s ease-in-out;
+        }
+    .event:nth-child(even) {
+        // 偶数节点代码
+    }
+```
+编写出现的样式
+```
+    .event:nth-child(odd) {
+        &.in-view {
+            transform: none;
+            visibility: visible;
+            opacity: 1;
+        }
+        &.in-view::after {
+            background-color: #FD9827;
+            transition: background-color .5s ease-in-out;
+        }
+    }
+    .event:nth-child(even) {
+        // 偶数节点代码
+    }
+
+
+```
