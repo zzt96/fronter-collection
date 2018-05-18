@@ -1,0 +1,115 @@
+.timeline {
+  ul {
+    padding-bottom: 24px;
+    li {
+      list-style: none;
+      position: relative;
+      padding-top: 70px;
+      width: 2px;
+      margin: 0 auto;
+      background-color: #EFEFEF;
+      .year {
+        background-color: #FD9827;
+        position: absolute;
+        top: 0;
+        left:-28px;
+        width: 58px;
+        height: 58px;
+        /* Rotate to demon*/
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        p {
+          color:#FFFFFF;
+          text-align: center;
+          font-size:16px;
+          /* Rotate back to horizon*/
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+      .event:nth-child(even) {
+        padding-bottom:15px;
+        left: 220px;
+        position: relative;
+        width: 400px;
+        .mark {
+          border:1px solid #CCCCCC;
+          position: absolute;
+          left:-200px;
+          top:8%;
+          width: 27px;
+          height: 27px;
+          /* Rotate to demon*/
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+        .line {
+          position: absolute;
+          left:-166px;
+          top:29%;
+          width:160px;
+          height:1px;
+          padding:0px;
+          background-color:#CCCCCC;
+        }
+        time {
+          color: #333333;
+          font-size: 16px;
+        }
+        p {
+          margin-top: -2px;
+          color: #666666;
+          font-size: 14px;
+        }
+      }
+      .event:nth-child(odd) {
+        text-align: right;
+        padding-bottom:15px;
+        left: -650px;
+        position: relative;
+        width: 400px;
+        .mark {
+          border:1px solid #CCCCCC;
+          position: absolute;
+          left:600px;
+          top:8%;
+          width: 27px;
+          height: 27px;
+          /* Rotate to demon*/
+          -webkit-transform: rotate(-45deg);
+          -moz-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+          -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+        }
+        .line {
+          position: absolute;
+          left:436px;
+          top:29%;
+          width:160px;
+          height:1px;
+          padding:0px;
+          background-color:#CCCCCC;
+        }
+        time {
+          color: #333333;
+          font-size: 16px;
+        }
+        p {
+          margin-top: -2px;
+          color: #666666;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
