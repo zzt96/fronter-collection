@@ -1,6 +1,7 @@
 .timeline {
   ul {
-    padding-bottom: 24px;
+    //padding-bottom: 24px;
+    padding-left: 0;
     li {
       list-style: none;
       position: relative;
@@ -12,7 +13,7 @@
         background-color: #FD9827;
         position: absolute;
         top: 0;
-        left:-28px;
+        left: -28px;
         width: 58px;
         height: 58px;
         /* Rotate to demon*/
@@ -22,9 +23,9 @@
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg);
         p {
-          color:#FFFFFF;
+          color: #FFFFFF;
           text-align: center;
-          font-size:16px;
+          font-size: 16px;
           /* Rotate back to horizon*/
           -webkit-transform: rotate(45deg);
           -moz-transform: rotate(45deg);
@@ -34,19 +35,16 @@
         }
       }
       .event {
-        padding-bottom:15px;
-        //left: 220px;
+        padding-bottom: 10px;
         position: relative;
         width: 300px;
         visibility: hidden;
         opacity: 0;
         transition: all .5s ease-in-out;
-        //transform: translateX(200px);
         .mark {
-          border:1px solid #CCCCCC;
+          border: 1px solid #CCCCCC;
           position: absolute;
-          //left:-200px;
-          top:15px;//xiu
+          top: 15px;
           width: 27px;
           height: 27px;
           /* Rotate to demon*/
@@ -59,11 +57,11 @@
         .line {
           position: absolute;
           //left:-166px;
-          top:29px;
-          width:160px;
-          height:1px;
-          padding:0px;
-          background-color:#CCCCCC;
+          top: 29px;
+          width: 160px;
+          height: 1px;
+          padding: 0px;
+          background-color: #CCCCCC;
         }
         time {
           color: #333333;
@@ -75,24 +73,24 @@
           font-size: 14px;
         }
         &:nth-child(even) {
-          left: 220px;
+          left: 230px;
           transform: translateX(200px);
           .mark {
-            left:-200px;
+            left: -205px;
           }
           .line {
-            left:-166px;
+            left: -171px;
           }
         }
         &:nth-child(odd) {
           text-align: right;
-          left: -550px;
+          left: -525px;
           transform: translateX(-200px);
           .mark {
-            left:500px;
+            left: 475px;
           }
           .line {
-            left:336px;
+            left: 310px;
           }
         }
         &.in-view {
@@ -111,31 +109,73 @@
       //    p{
       //      width: 250px;
       //    }
-      //
       //  }
-      //
       //  .timeline ul li .event:nth-child(even) {
       //    left: -289px;
       //  }
       //}
-      //
-      //@media screen and (max-width: 675px) {
-      //  .timeline ul li {
-      //    margin-left: 48px;
-      //    .event {
-      //      &:nth-child(even) , &:nth-child(odd) {
-      //        left: 45px;
-      //
-      //        &::before {
-      //          left: -15px;
-      //          border-width: 8px 16px 8px 0;
-      //          border-color: transparent #F45B69 transparent transparent;
-      //        }
-      //      }
-      //    }
-      //
-      //  }
-      //}
+
     }
+  }
+}
+
+@media (max-width: 692px) {
+  .timeline {
+    ul {
+      li {
+        margin-left: 45px;
+        .event {
+          width: 200px;
+          &:nth-child(even), &:nth-child(odd) {
+            left: 145px;
+            text-align: left;
+            .mark {
+              left: -120px;
+            }
+            .line {
+              left: -85px;
+              width: 80px
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media (min-width: 692px)and(max-width: 992px) {
+  .timeline {
+    ul {
+      li {
+        .event {
+          width: 200px;
+          &:nth-child(even), &:nth-child(odd) {
+            .line {
+              width: 90px
+            }
+          }
+          &:nth-child(odd) {
+            left: -350px;
+            .mark {
+              left: 300px;
+            }
+            .line {
+              left: 205px;
+            }
+          }
+          &:nth-child(even) {
+            left: 150px;
+            .mark {
+              left: -125px;
+            }
+            .line {
+              left: -92px;
+            }
+          }
+        }
+      }
+    }
+
   }
 }

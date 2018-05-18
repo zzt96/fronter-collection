@@ -1,5 +1,5 @@
 .timeline ul {
-  padding-bottom: 24px;
+  padding-left: 0;
 }
 .timeline ul li {
   list-style: none;
@@ -35,7 +35,7 @@
   transform: rotate(45deg);
 }
 .timeline ul li .event {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   position: relative;
   width: 300px;
   visibility: hidden;
@@ -73,25 +73,25 @@
   font-size: 14px;
 }
 .timeline ul li .event:nth-child(even) {
-  left: 220px;
+  left: 230px;
   transform: translateX(200px);
 }
 .timeline ul li .event:nth-child(even) .mark {
-  left: -200px;
+  left: -205px;
 }
 .timeline ul li .event:nth-child(even) .line {
-  left: -166px;
+  left: -171px;
 }
 .timeline ul li .event:nth-child(odd) {
   text-align: right;
-  left: -550px;
+  left: -525px;
   transform: translateX(-200px);
 }
 .timeline ul li .event:nth-child(odd) .mark {
-  left: 500px;
+  left: 475px;
 }
 .timeline ul li .event:nth-child(odd) .line {
-  left: 336px;
+  left: 310px;
 }
 .timeline ul li .event.in-view {
   transform: none;
@@ -101,4 +101,53 @@
 .timeline ul li .event.in-view::after {
   background-color: #FD9827;
   transition: background-color 0.5s ease-in-out;
+}
+@media (max-width: 692px) {
+  .timeline ul li {
+    margin-left: 45px;
+  }
+  .timeline ul li .event {
+    width: 200px;
+  }
+  .timeline ul li .event:nth-child(even),
+  .timeline ul li .event:nth-child(odd) {
+    left: 145px;
+    text-align: left;
+  }
+  .timeline ul li .event:nth-child(even) .mark,
+  .timeline ul li .event:nth-child(odd) .mark {
+    left: -120px;
+  }
+  .timeline ul li .event:nth-child(even) .line,
+  .timeline ul li .event:nth-child(odd) .line {
+    left: -85px;
+    width: 80px;
+  }
+}
+@media (min-width: 692px) and (max-width: 992px) {
+  .timeline ul li .event {
+    width: 200px;
+  }
+  .timeline ul li .event:nth-child(even) .line,
+  .timeline ul li .event:nth-child(odd) .line {
+    width: 90px;
+  }
+  .timeline ul li .event:nth-child(odd) {
+    left: -350px;
+  }
+  .timeline ul li .event:nth-child(odd) .mark {
+    left: 300px;
+  }
+  .timeline ul li .event:nth-child(odd) .line {
+    left: 205px;
+  }
+  .timeline ul li .event:nth-child(even) {
+    left: 150px;
+  }
+  .timeline ul li .event:nth-child(even) .mark {
+    left: -125px;
+  }
+  .timeline ul li .event:nth-child(even) .line {
+    left: -92px;
+  }
 }
